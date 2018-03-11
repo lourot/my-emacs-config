@@ -1,0 +1,3 @@
+[submodule "thirdparty/crouton-emacs-conf"]
+	path = thirdparty/crouton-emacs-conf
+	url = https://github.com/AurelienLourot/crouton-emacs-conf.git

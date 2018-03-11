@@ -1,18 +1,21 @@
 ;; MMI
 
+;; Dark theme:
+(add-to-list 'custom-theme-load-path "~/.emacs.d/thirdparty/dracula")
+(load-theme 'dracula t)
+(setq background-color "black")
+(set-face-background 'default background-color)
+
 ;; General:
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (savehist-mode 1)
 (size-indication-mode t)
-(add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
 (blink-cursor-mode nil)
 (column-number-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq same-window-regexps '("."))
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
-(global-set-key (kbd "C-c C-c") 'multi-term)
-(setq term-unbind-key-list (delete "<ESC>" term-unbind-key-list))
 (global-set-key (kbd "C-z") 'cua-paste) ;; like C-y, because of DE/US keyboard layouts
 (put 'scroll-left 'disabled nil)
 
@@ -82,10 +85,9 @@
   (progn
     (global-whitespace-mode 1) ;; show invisible characters
     (set-face-attribute 'whitespace-space nil
-                        :background nil) ;; FIXME conflicts with the column marker
+                        :background background-color) ;; FIXME conflicts with the column marker
     (set-face-attribute 'whitespace-trailing nil
-                        :foreground "lightgray"
-                        :background "white")
+                        :background background-color)
   )
 (disable-ws)
 )
@@ -138,7 +140,11 @@
 (append-to-scratch "Folding code:\n;; https://www.emacswiki.org/emacs/HideShow")
 
 ;; Terminal:
+(add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
+(global-set-key (kbd "C-c C-c") 'multi-term)
+(setq term-unbind-key-list (delete "<ESC>" term-unbind-key-list))
 (defun la-term-mode-hook ()
   "LA Term mode hook."
   )
 (add-hook 'term-mode-hook 'la-term-mode-hook)
+(set-face-attribute 'term nil :background background-color)

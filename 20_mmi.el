@@ -85,7 +85,7 @@
   (progn
     (global-whitespace-mode 1) ;; show invisible characters
     (set-face-attribute 'whitespace-space nil
-                        :foreground "#404040"
+                        :foreground "#606060"
                         :background background-color) ;; FIXME conflicts with the column marker
     (set-face-attribute 'whitespace-trailing nil
                         :background background-color)

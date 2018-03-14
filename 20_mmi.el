@@ -106,7 +106,7 @@
     (newline-mark 10 [10])
     (tab-mark 9 [187 9] [92 9])
    ))
-(setq whitespace-line-column 999) ;; don't show long lines
+(setq whitespace-line-column 999999999) ;; don't show long lines
 
 ;; Special keys in console:
 (define-key input-decode-map "\e[1;2D" [S-left])

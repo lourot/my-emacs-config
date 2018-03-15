@@ -4,3 +4,9 @@
 [submodule "thirdparty/dracula"]
 	path = thirdparty/dracula
 	url = https://github.com/dracula/emacs.git
+[submodule "thirdparty/autocomplete"]
+	path = thirdparty/autocomplete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule "thirdparty/autocompletepopup"]
+	path = thirdparty/autocompletepopup
+	url = https://github.com/auto-complete/popup-el.git

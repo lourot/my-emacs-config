@@ -5,8 +5,11 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Auto-completion: 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/thirdparty/autocomplete/ac-dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/thirdparty/autocomplete/dict")
 (ac-config-default)
+
+;; Fix broken popup, see https://stackoverflow.com/a/13242340/1855917
+(setq popup-use-optimized-column-computation nil)
 
 ;; De-indentation: 
 (setq la-tabwidth 2)

@@ -76,6 +76,8 @@
                         :background background-color)
     (set-face-attribute 'whitespace-trailing nil
                         :background background-color)
+    (set-face-attribute 'whitespace-empty nil
+                        :background "#606060")
   )
 (disable-ws)
 )

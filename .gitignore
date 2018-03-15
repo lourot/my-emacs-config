@@ -2,5 +2,6 @@
 /auto-save-list/.saves-*
 /desktop/*desktop*
 /ede-projects.el
+/elpa
 /history
 /tramp

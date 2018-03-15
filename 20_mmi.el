@@ -19,19 +19,6 @@
 (global-set-key (kbd "C-z") 'cua-paste) ;; like C-y, because of DE/US keyboard layouts
 (put 'scroll-left 'disabled nil)
 
-;; Column marker: 
-(defun show-column-marker ()
-  (interactive)
-  (column-marker-1 100))
-(add-hook 'c-mode-hook 'show-column-marker)
-(add-hook 'c++-mode-hook 'show-column-marker)
-(add-hook 'emacs-lisp-mode-hook 'show-column-marker)
-(add-hook 'LaTeX-mode-hook 'show-column-marker)
-(add-hook 'text-mode-hook 'show-column-marker)
-(add-hook 'sh-mode-hook 'show-column-marker)
-(add-hook 'python-mode-hook 'show-column-marker)
-(add-hook 'js-mode-hook 'show-column-marker)
-
 ;; Font size: 
 (setq my-font-size 100)
 (if (display-graphic-p)
@@ -86,27 +73,21 @@
     (global-whitespace-mode 1) ;; show invisible characters
     (set-face-attribute 'whitespace-space nil
                         :foreground "#606060"
-                        :background background-color) ;; FIXME conflicts with the column marker
+                        :background background-color)
     (set-face-attribute 'whitespace-trailing nil
                         :background background-color)
   )
 (disable-ws)
 )
-;; Trick because (global-)whitespace-newline-mode doesn't work.
-;;   See http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-01/msg00280.html
-;;       http://www.emacswiki.org/emacs/WhiteSpace
-(setq whitespace-display-mappings
-  '(
-    (space-mark 32 [183] [46])
-    (space-mark 160 [164] [95])
-    (space-mark 2208 [2212] [95])
-    (space-mark 2336 [2340] [95])
-    (space-mark 3616 [3620] [95])
-    (space-mark 3872 [3876] [95])
-    (newline-mark 10 [10])
-    (tab-mark 9 [187 9] [92 9])
-   ))
-(setq whitespace-line-column 999999999) ;; don't show long lines
+
+;; Column marker:
+;; See
+;; - https://www.emacswiki.org/emacs/EightyColumnRule
+;; - https://www.emacswiki.org/emacs/WhiteSpace#toc7
+;; - https://stackoverflow.com/a/7955221/1855917
+(setq whitespace-style
+      '(face spaces tabs newline space-mark tab-mark trailing lines-tail empty))
+(setq whitespace-line-column 100)
 
 ;; Special keys in console:
 (define-key input-decode-map "\e[1;2D" [S-left])

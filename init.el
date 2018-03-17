@@ -1,4 +1,4 @@
-;; Modules: 
+;; Modules:
 (server-start)
 (add-to-list 'load-path "~/.emacs.d/thirdparty/")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/autocomplete/")
@@ -18,8 +18,9 @@
 
 (require 'maxframe)
 (require 'ansi-color) ;; for colorize-compilation-buffer
+(require 'yaml-mode)
 
-;; Subconf: 
+;; Subconfs:
 (add-to-list 'load-path "~/.emacs.d/")
 (load "05_core")
 (load "10_filehandling")

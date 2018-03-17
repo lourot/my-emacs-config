@@ -1,6 +1,6 @@
 # My Emacs config
 
-Feel free to use it as an example and reuse any part of it. It should work for any version >= 22.
+Feel free to use it as an example and reuse any part of it. It should work for any version >= 24.1.
 
 ```
 cd ~

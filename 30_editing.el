@@ -1,17 +1,17 @@
 ;; EDITING
 
-;; General: 
+;; General:
 (delete-selection-mode t)
 (setq-default indent-tabs-mode nil)
 
-;; Auto-completion: 
+;; Auto-completion:
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/thirdparty/autocomplete/dict")
 (ac-config-default)
 
 ;; Fix broken popup, see https://stackoverflow.com/a/13242340/1855917
 (setq popup-use-optimized-column-computation nil)
 
-;; De-indentation: 
+;; De-indentation:
 (setq la-tabwidth 2)
 (setq la-tabwidth-java (* 2 la-tabwidth))
 (defun deindent ()
@@ -34,12 +34,32 @@
 )
 (global-set-key [backtab] 'deindent)
 
-;; Line Commenting: 
+;; Line Commenting:
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
   (interactive)
   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
 (global-set-key (kbd "C-x C-h") 'toggle-comment-on-line)
+
+;; Word highlighting:
+(defface la-highlight-face
+  '((((class color) (background light))
+     (:inherit 'font-lock-comment-face :foreground "red" :background "yellow" :weight bold))
+    (((class color) (background dark))
+     (:inherit 'font-lock-comment-face :foreground "red" :background "yellow" :weight bold))
+    (t (:bold t :italic t)))
+  "LA highlight face"
+  :group 'font-lock-highlighting-faces)
+(defvar la-highlight-keywords
+  '(
+    ("\\<\\(LA_\\w*\\>\\)" 1 'la-highlight-face prepend)
+    ("\\<\\(FIXME\\>\\)" 1 'la-highlight-face prepend)
+    ("\\<\\(TODO\\>\\)" 1 'la-highlight-face prepend)
+    ("\\<\\(XXX\\>\\)" 1 'la-highlight-face prepend)
+   ))
+(defun set-la-highlight ()
+  (interactive)
+  (font-lock-add-keywords nil la-highlight-keywords))
 
 ;; C/C++:
 ;; we don't set c-syntactic-indentation to nil as it would disable smart indentation
@@ -87,25 +107,7 @@
 ;;FIXME some statements are duplicated across programming languages, like
 ;; (local-set-key (kbd ")") 'self-insert-command)
 
-;; C/C++ (highlight):
-(defface la-highlight-face
-  '((((class color) (background light)) 
-     (:inherit 'font-lock-comment-face :foreground "red" :background "yellow" :weight bold))
-    (((class color) (background dark))
-     (:inherit 'font-lock-comment-face :foreground "red" :background "yellow" :weight bold))
-    (t (:bold t :italic t)))
-  "LA highlight face"
-  :group 'font-lock-highlighting-faces)
-(defvar la-highlight-keywords
-  '(
-    ("\\<\\(LA_\\w*\\>\\)" 1 'la-highlight-face prepend)
-    ("\\<\\(FIXME\\>\\)" 1 'la-highlight-face prepend)
-    ("\\<\\(TODO\\>\\)" 1 'la-highlight-face prepend)
-    ("\\<\\(XXX\\>\\)" 1 'la-highlight-face prepend)
-   ))
-(defun set-la-highlight ()
-  (interactive)
-  (font-lock-add-keywords nil la-highlight-keywords))
+;; C/C++ (word highlighting):
 (add-hook 'c-mode-common-hook 'set-la-highlight)
 
 ;; C/C++ (auto-completion):
@@ -138,14 +140,14 @@
           (setq first (cdr (car (cdr alist)))))
     (semantic-mrub-switch-tags first)))
 
-;; Python: 
+;; Python:
 ;; Disables CEDET as it leads to freezes. See https://github.com/jorgenschaefer/elpy/issues/226
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
-;; LaTeX: 
+;; LaTeX:
 (setq font-latex-fontify-sectioning 'color) ;; disable different font sizes
 
-;; Lisp: 
+;; Lisp:
 (defun la-lisp-mode ()
   "LA Lisp mode"
   (emacs-lisp-mode)
@@ -153,10 +155,10 @@
 )
 (add-to-list 'auto-mode-alist '("\\.el\\'" . la-lisp-mode))
 
-;; Lisp (highlight):
+;; Lisp (word highlighting):
 (font-lock-add-keywords 'emacs-lisp-mode la-highlight-keywords)
 
-;; Text: 
+;; Text:
 (defun la-text-mode ()
   "LA Text mode"
   (text-mode)
@@ -215,6 +217,12 @@
 )
 (add-hook 'java-mode-hook 'la-java-mode-hook)
 
+;; YAML:
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; YAML (word highlighting):
+(add-hook 'yaml-mode-hook 'set-la-highlight)
+
 ;; Term (paste):
 (defun la-term-mode-hook ()
   "LA Term mode hook."
@@ -222,7 +230,7 @@
 )
 (add-hook 'term-mode-hook 'la-term-mode-hook)
 
-;; Finding files: 
+;; Finding files:
 (defun la-save-grep-changes ()
   (interactive)
   (grep-edit-finish-edit)

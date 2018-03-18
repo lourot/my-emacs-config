@@ -223,6 +223,13 @@
 ;; YAML (word highlighting):
 (add-hook 'yaml-mode-hook 'set-la-highlight)
 
+;; Bash (open terminal):
+(defun la-sh-mode-hook ()
+  "LA SH mode hook."
+  (local-set-key key-open-term 'multi-term)
+)
+(add-hook 'sh-mode-hook 'la-sh-mode-hook)
+
 ;; Term (paste):
 (defun la-term-mode-hook ()
   "LA Term mode hook."

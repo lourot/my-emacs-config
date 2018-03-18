@@ -125,7 +125,8 @@
 
 ;; Terminal:
 (add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
-(global-set-key (kbd "C-c C-c") 'multi-term)
+(setq key-open-term (kbd "C-c C-c"))
+(global-set-key key-open-term 'multi-term)
 (setq term-unbind-key-list (delete "<ESC>" term-unbind-key-list))
 (defun la-term-mode-hook ()
   "LA Term mode hook."

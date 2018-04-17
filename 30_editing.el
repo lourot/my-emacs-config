@@ -144,6 +144,9 @@
 ;; Disables CEDET as it leads to freezes. See https://github.com/jorgenschaefer/elpy/issues/226
 (remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
+;; Python (word highlighting):
+(add-hook 'python-mode-hook 'set-la-highlight)
+
 ;; LaTeX:
 (setq font-latex-fontify-sectioning 'color) ;; disable different font sizes
 
@@ -185,6 +188,9 @@
   (local-set-key (kbd ";") 'self-insert-command)
 )
 (add-hook 'js-mode-hook 'la-js-mode-hook)
+
+;; Javascript (word highlighting):
+(add-hook 'js-mode-hook 'set-la-highlight)
 
 ;; CSS:
 (defun la-css-mode ()
@@ -229,6 +235,12 @@
   (local-set-key key-open-term 'multi-term)
 )
 (add-hook 'sh-mode-hook 'la-sh-mode-hook)
+
+;; Bash (word highlighting):
+(add-hook 'sh-mode-hook 'set-la-highlight)
+
+;; HTML (word highlighting):
+(add-hook 'html-mode-hook 'set-la-highlight)
 
 ;; Term (paste):
 (defun la-term-mode-hook ()

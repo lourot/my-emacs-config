@@ -176,8 +176,8 @@
 ;; Javascript:
 (defun la-js-mode ()
   "LA JS mode"
-  (js-mode)
-  (setq js-indent-level 2)
+  (js2-mode)
+  (setq js2-basic-offset 2)
   (setq mode-name "LA JS") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.js\\'" . la-js-mode))

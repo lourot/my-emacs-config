@@ -261,7 +261,7 @@
 )
 (add-hook 'grep-mode-hook 'la-grep-mode-hook)
 (setq grep-use-null-device t) ;; skips grep-probe, which would make the first grep very slow
-(setq grep-command "rgrep --exclude-dir=\".git\" --exclude-dir=\"thirdparty\" -n LA_ *")
+(setq grep-command "rgrep --exclude-dir=\".git\" --exclude-dir=\"thirdparty\" --exclude-dir=\"node_modules\" -n LA_ *")
 
 ;; Macro replay:
 (global-set-key (kbd "C-#") 'kmacro-end-and-call-macro)

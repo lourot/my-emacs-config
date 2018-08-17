@@ -260,10 +260,11 @@
   (local-set-key  (kbd "C-x C-s") 'la-save-grep-changes)
 )
 (add-hook 'grep-mode-hook 'la-grep-mode-hook)
-(setq grep-use-null-device t) ;; skips grep-probe, which would make the first grep very slow
 
-;; 'dist/' is Reframe's build output
-(setq grep-command "rgrep --exclude-dir=\".git\" --exclude-dir=\"thirdparty\" --exclude-dir=\"node_modules\" --exclude-dir=\"dist\" -n LA_ *")
+(setq grep-command "~/.emacs.d/bin/rgrep.sh LA_")
+
+;; See https://lists.gnu.org/archive/html/help-gnu-emacs/2008-10/msg00426.html :
+(setq grep-use-null-device nil)
 
 ;; Macro replay:
 (global-set-key (kbd "C-#") 'kmacro-end-and-call-macro)

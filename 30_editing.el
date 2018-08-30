@@ -229,6 +229,15 @@
 ;; YAML (word highlighting):
 (add-hook 'yaml-mode-hook 'set-la-highlight)
 
+;; Bash:
+(defun la-sh-mode ()
+  "LA SH mode"
+  (sh-mode)
+  (setq sh-basic-offset 2)
+  (setq mode-name "LA SH") ;; must be the last one
+)
+(add-to-list 'auto-mode-alist '("\\.sh\\'" . la-sh-mode))
+
 ;; Bash (open terminal):
 (defun la-sh-mode-hook ()
   "LA SH mode hook."

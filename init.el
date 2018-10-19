@@ -30,5 +30,6 @@
 (load "20_mmi")
 (load "30_editing")
 (load "40_building")
+(load "50_projects")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/")
 (load "crouton-emacs-conf")

@@ -13,7 +13,6 @@
 
 ;; De-indentation:
 (setq la-tabwidth 2)
-(setq la-tabwidth-java (* 2 la-tabwidth))
 (defun deindent ()
   (interactive)
   (setq blanks-to-remove la-tabwidth)
@@ -177,7 +176,7 @@
 (defun la-js-mode ()
   "LA JS mode"
   (js2-mode)
-  (setq js2-basic-offset 2)
+  (setq js2-basic-offset la-tabwidth)
   (setq mode-name "LA JS") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.js\\'" . la-js-mode))
@@ -206,8 +205,8 @@
   "LA Java mode"
   (java-mode)
   (c-set-style "java")
-  (setq c-basic-offset la-tabwidth-java)
-  (setq tab-width la-tabwidth-java) ;; display width of character TAB
+  (setq c-basic-offset la-tabwidth)
+  (setq tab-width la-tabwidth) ;; display width of character TAB
   (c-set-offset 'arglist-intro '++)         ;; argument indentation
   (c-set-offset 'arglist-cont-nonempty '++) ;; argument indentation
   (setq mode-name "LA Java") ;; must be the last one
@@ -233,7 +232,7 @@
 (defun la-sh-mode ()
   "LA SH mode"
   (sh-mode)
-  (setq sh-basic-offset 2)
+  (setq sh-basic-offset la-tabwidth)
   (setq mode-name "LA SH") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.sh\\'" . la-sh-mode))
@@ -247,6 +246,23 @@
 
 ;; Bash (word highlighting):
 (add-hook 'sh-mode-hook 'set-la-highlight)
+
+;; Make:
+(defun insert-real-tab () (interactive) (
+                                         insert-char
+                                         09 ;; ASCII hex for TAB
+                                        ))
+(defun la-makefile-gmake-mode ()
+  "LA GNUmakefile mode"
+  (makefile-gmake-mode)
+  (setq indent-tabs-mode t) ;; indent with TAB instead of blanks
+
+  ;;FIXME workaround, otherwise pressing TAB raises 'wrong number of arguments':
+  (local-set-key (kbd "<tab>") 'insert-real-tab)
+
+  (setq mode-name "LA GNUmakefile") ;; must be the last one
+)
+(add-to-list 'auto-mode-alist '("Makefile\\'" . la-makefile-gmake-mode))
 
 ;; HTML (word highlighting):
 (add-hook 'html-mode-hook 'set-la-highlight)

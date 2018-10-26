@@ -237,13 +237,6 @@
 )
 (add-to-list 'auto-mode-alist '("\\.sh\\'" . la-sh-mode))
 
-;; Bash (open terminal):
-(defun la-sh-mode-hook ()
-  "LA SH mode hook."
-  (local-set-key key-open-term 'multi-term)
-)
-(add-hook 'sh-mode-hook 'la-sh-mode-hook)
-
 ;; Bash (word highlighting):
 (add-hook 'sh-mode-hook 'set-la-highlight)
 
@@ -273,6 +266,16 @@
   (local-set-key  (kbd "C-y") 'term-paste) ;; can be done with S-insert too
 )
 (add-hook 'term-mode-hook 'la-term-mode-hook)
+
+;; Make it possible to open a terminal with "C-c C-c" from these modes as well:
+(defun open-term-mode-hook ()
+  "open term mode hook."
+  (local-set-key key-open-term 'multi-term)
+)
+(add-hook 'conf-mode-hook 'open-term-mode-hook)
+(add-hook 'sh-mode-hook 'open-term-mode-hook)
+(add-hook 'sql-mode-hook 'open-term-mode-hook)
+(add-hook 'python-mode-hook 'open-term-mode-hook)
 
 ;; Finding files:
 (defun la-save-grep-changes ()

@@ -78,6 +78,7 @@
   (setq mode-name "LA C++") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.[ch]p?p?\\'" . la-cpp-mode))
+(add-to-list 'auto-mode-alist '("\\.ino\\'" . la-cpp-mode))
 
 ;; C/C++ (various shortcuts and disable auto-indent):
 (defun la-cpp-mode-hook ()

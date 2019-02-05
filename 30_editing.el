@@ -192,6 +192,18 @@
 ;; Javascript (word highlighting):
 (add-hook 'js-mode-hook 'set-la-highlight)
 
+;; JSON:
+(defun la-json-mode ()
+  "LA JSON mode"
+  (json-mode)
+  (setq js-indent-level la-tabwidth)
+  (setq mode-name "LA JSON") ;; must be the last one
+)
+(add-to-list 'auto-mode-alist '("\\.json\\'" . la-json-mode))
+
+;; JSON (word highlighting):
+(add-hook 'json-mode-hook 'set-la-highlight)
+
 ;; CSS:
 (defun la-css-mode ()
   "LA CSS mode"

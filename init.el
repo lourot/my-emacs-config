@@ -19,6 +19,7 @@
 (require 'maxframe)
 (require 'ansi-color) ;; for colorize-compilation-buffer
 (require 'yaml-mode)
+(require 'json-mode)
 
 (add-to-list 'load-path "~/.emacs.d/thirdparty/js2-mode-20180331.2247/")
 (require 'js2-mode)

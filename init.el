@@ -24,6 +24,20 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/js2-mode-20180331.2247/")
 (require 'js2-mode)
 
+;; See https://elpy.readthedocs.io/en/latest/introduction.html#manually-from-sources
+(add-to-list 'load-path "~/.emacs.d/thirdparty/elpy/")
+
+;; We need at least Emacs 24.4, see https://github.com/jorgenschaefer/elpy/issues/1431
+(when (or (> emacs-major-version 24)
+          (and (= emacs-major-version 24) (> emacs-minor-version 3)))
+  (load "elpy")
+  (load "elpy-rpc")
+  (load "elpy-shell")
+  (load "elpy-profile")
+  (load "elpy-refactor")
+  (load "elpy-django")
+)
+
 ;; Subconfs:
 (add-to-list 'load-path "~/.emacs.d/")
 (load "05_core")

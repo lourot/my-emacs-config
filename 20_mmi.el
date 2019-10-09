@@ -121,6 +121,7 @@
 (setq initial-scratch-message "")
 (append-to-scratch "Debugging:\n;; M-x append-to-scratch")
 (append-to-scratch "Adjust font size:\n;; C-x C-+|-|0")
+(append-to-scratch "Show line numbers for current buffer:\n;; M-x linum-mode")
 (append-to-scratch "Folding code:\n;; https://www.emacswiki.org/emacs/HideShow")
 
 ;; Terminal:

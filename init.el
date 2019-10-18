@@ -38,6 +38,9 @@
   (load "elpy-django")
 )
 
+(add-to-list 'load-path "~/.emacs.d/thirdparty/floobits/")
+(load "floobits")
+
 ;; Subconfs:
 (add-to-list 'load-path "~/.emacs.d/")
 (load "05_core")

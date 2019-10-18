@@ -13,3 +13,6 @@
 [submodule "thirdparty/elpy"]
 	path = thirdparty/elpy
 	url = https://github.com/jorgenschaefer/elpy
+[submodule "thirdparty/floobits"]
+	path = thirdparty/floobits
+	url = https://github.com/Floobits/floobits-emacs.git

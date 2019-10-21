@@ -23,19 +23,16 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/js2-mode-20180331.2247/")
 (require 'js2-mode)
 
-;; See https://elpy.readthedocs.io/en/latest/introduction.html#manually-from-sources
-(add-to-list 'load-path "~/.emacs.d/thirdparty/elpy/")
-
 ;; We need at least Emacs 24.4, see https://github.com/jorgenschaefer/elpy/issues/1431
 (when (or (> emacs-major-version 24)
           (and (= emacs-major-version 24) (> emacs-minor-version 3)))
-;;FIXME temporarily disabled because of https://github.com/jorgenschaefer/elpy/issues/1047
-;;  (load "elpy")
-;;  (load "elpy-rpc")
-;;  (load "elpy-shell")
-;;  (load "elpy-profile")
-;;  (load "elpy-refactor")
-;;  (load "elpy-django")
+  ;; See https://melpa.org/#/getting-started
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+  (package-initialize)
+  (package-install 'elpy)
+  (elpy-enable)
 )
 
 (add-to-list 'load-path "~/.emacs.d/thirdparty/floobits/")
@@ -50,3 +47,20 @@
 (load "50_projects")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/")
 (load "crouton-emacs-conf")
+
+;; Generated:
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (elpy)))
+ '(tab-stop-list
+   (quote
+    (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

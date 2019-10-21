@@ -3,5 +3,6 @@
 /desktop/*desktop*
 /ede-projects.el
 /elpa
+/elpy
 /history
 /tramp

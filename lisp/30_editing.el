@@ -135,6 +135,7 @@
 
 ;; Python (word highlighting):
 (add-hook 'python-mode-hook 'set-la-highlight)
+(append-to-scratch "Go to Python definition and back:\n;; M-. M-,")
 
 ;; LaTeX:
 (setq font-latex-fontify-sectioning 'color) ;; disable different font sizes

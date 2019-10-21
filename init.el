@@ -30,12 +30,13 @@
 ;; We need at least Emacs 24.4, see https://github.com/jorgenschaefer/elpy/issues/1431
 (when (or (> emacs-major-version 24)
           (and (= emacs-major-version 24) (> emacs-minor-version 3)))
-  (load "elpy")
-  (load "elpy-rpc")
-  (load "elpy-shell")
-  (load "elpy-profile")
-  (load "elpy-refactor")
-  (load "elpy-django")
+;;FIXME temporarily disabled because of https://github.com/jorgenschaefer/elpy/issues/1047
+;;  (load "elpy")
+;;  (load "elpy-rpc")
+;;  (load "elpy-shell")
+;;  (load "elpy-profile")
+;;  (load "elpy-refactor")
+;;  (load "elpy-django")
 )
 
 (add-to-list 'load-path "~/.emacs.d/thirdparty/floobits/")

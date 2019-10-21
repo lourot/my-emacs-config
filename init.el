@@ -3,7 +3,6 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/autocomplete/")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/autocompletepopup/")
-(add-to-list 'load-path "~/.emacs.d/thirdparty/cedet-1.1/common")
 (load "buff-menu_23") ;; buff-menu+ doesn't support buff-menu_24
 (require 'buff-menu+)
 (require 'revbufs)
@@ -43,12 +42,11 @@
 (load "floobits")
 
 ;; Subconfs:
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (load "05_core")
 (load "10_filehandling")
 (load "20_mmi")
 (load "30_editing")
-(load "40_building")
 (load "50_projects")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/")
 (load "crouton-emacs-conf")

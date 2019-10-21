@@ -123,14 +123,20 @@
 (add-hook 'term-mode-hook 'la-term-mode-hook)
 (set-face-attribute 'term nil :background background-color)
 
-;; Font size and full screen:
-(defun la-set-font-size-and-full-screen ()
+;; Full screen:
+(defun la-full-screen ()
   (interactive)
-  (if (display-graphic-p)
-    (set-face-attribute 'default nil :height 100)
-  )
   (setq mf-max-width 1900)
   (setq mf-display-padding-height 50)
   (maximize-frame)
 )
-(run-with-timer 0 5 'la-set-font-size-and-full-screen)
+(run-with-idle-timer 2 nil 'la-full-screen)
+
+;; Font size:
+(defun la-set-font-size ()
+  (interactive)
+  (if (display-graphic-p)
+    (set-face-attribute 'default nil :height 100)
+  )
+)
+(run-with-idle-timer 4 nil 'la-set-font-size)

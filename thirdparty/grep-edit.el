@@ -16,7 +16,7 @@
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
-;; You sgrep-edit-put-color-filehould have received a copy of the GNU General Public License
+;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
@@ -65,8 +65,7 @@
      (:background "SlateGray1" :bold t :foreground "Black"))
     (((class color)
       (background light))
-     ;; (:background "ForestGreen" :bold t))
-     (:background "DeepSkyBlue" :bold t))
+     (:background "ForestGreen" :bold t))
     (t
      ()))
   "*Face used for the changed text on grep buffer."
@@ -78,8 +77,7 @@
      (:background "gray30" :bold t))
     (((class color)
       (background light))
-     ;; (:background "ForestGreen" :bold t))
-     (:background "DeepSkyBlue" :bold t))
+     (:background "ForestGreen" :bold t))
     (t
      ()))
   "*Face used for the changed text on file buffer."
@@ -220,7 +218,7 @@
                 (match-end 1))
                default-directory))
         (setq grep-edit-line
-              (string-to-int
+              (string-to-number
                (buffer-substring-no-properties
                 (match-beginning 2)
                 (match-end 2))))
@@ -304,7 +302,7 @@
             (if (grep-edit-check-file) ;; check file
                 (progn                 ;; if it can be edited
                   (grep-edit-change-file) ;; Change file
-                  ;; (grep-edit-put-color-file) ;; hilight the changed lines ;; it doesn't behave disable it
+                  (grep-edit-put-color-file) ;; hilight the changed lines
                   (set-buffer cbuf)
                   (grep-edit-put-done-face))
               (progn

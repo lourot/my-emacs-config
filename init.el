@@ -3,8 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/autocomplete/")
 (add-to-list 'load-path "~/.emacs.d/thirdparty/autocompletepopup/")
-(load "buff-menu_23") ;; buff-menu+ doesn't support buff-menu_24
-(require 'buff-menu+)
+(load "buff-menu")
 (require 'revbufs)
 (require 'grep-edit)
 (add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/thirdparty/")
@@ -54,6 +53,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Buffer-menu-name-width 30)
  '(package-selected-packages (quote (elpy)))
  '(tab-stop-list
    (quote

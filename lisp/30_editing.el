@@ -83,29 +83,25 @@
 (add-to-list 'auto-mode-alist '("\\.[ch]p?p?\\'" . la-cpp-mode))
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . la-cpp-mode))
 
-;; C/C++ (various shortcuts and disable auto-indent):
+;; C/C++ (various shortcuts, disable auto-indent, enable code browsing):
 (defun la-cpp-mode-hook ()
   "LA C++ mode hook."
   (local-set-key  (kbd "C-c C-c") nil)
   (local-set-key  (kbd "C-c o") 'ff-find-other-file)
-  ;; (local-set-key (kbd "<C-tab>") 'semantic-complete-analyze-inline)
-  ;; (local-set-key (kbd "<C-S-iso-lefttab>") 'semantic-ia-complete-symbol)
-  (local-set-key (kbd "M-1") 'semantic-ia-fast-jump)
-  (local-set-key (kbd "C-M-1") 'semantic-ia-fast-jump-back)
-  (local-set-key (kbd "M-2") 'semantic-symref)
-  (local-set-key (kbd "M-3") 'semantic-symref-symbol)
-  (local-set-key (kbd "M-4") 'semantic-analyze-proto-impl-toggle)
   (define-key c-mode-base-map "\C-m" 'c-context-line-break)
   (local-set-key (kbd ";") 'self-insert-command)
   (local-set-key (kbd ",") 'self-insert-command)
   (local-set-key (kbd "*") 'self-insert-command)
   (local-set-key (kbd ":") 'self-insert-command)
-  ;; (local-set-key (kbd "/") 'self-insert-command)
   (local-set-key (kbd "(") 'self-insert-command)
   (local-set-key (kbd ")") 'self-insert-command)
   (local-set-key (kbd "{") 'self-insert-command)
-  (local-set-key (kbd "}") 'self-insert-command))
+  (local-set-key (kbd "}") 'self-insert-command)
+
+  (ggtags-mode)
+)
 (add-hook 'c++-mode-hook 'la-cpp-mode-hook)
+(append-to-scratch "Find C++ references:\n;; C-c M-o")
 
 ;;FIXME some statements are duplicated across programming languages, like
 ;; (local-set-key (kbd ")") 'self-insert-command)
@@ -122,18 +118,8 @@
   ""
   "#include " ?" _ ?"
 )
-(defun semantic-ia-fast-jump-back ()
-  (interactive)
-  (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
-      (error "Semantic Bookmark ring is currently empty"))
-  (let* ((ring (oref semantic-mru-bookmark-ring ring))
-         (alist (semantic-mrub-ring-to-assoc-list ring))
-         (first (cdr (car alist))))
-    (if (semantic-equivalent-tag-p (oref first tag) (semantic-current-tag))
-          (setq first (cdr (car (cdr alist)))))
-    (semantic-mrub-switch-tags first)))
 
-;; Python (word highlighting):
+;; Python (word highlighting and code browsing):
 (add-hook 'python-mode-hook 'set-la-highlight)
 (append-to-scratch "Go to Python definition and back:\n;; M-. M-,")
 

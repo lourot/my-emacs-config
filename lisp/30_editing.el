@@ -101,7 +101,7 @@
   (ggtags-mode)
 )
 (add-hook 'c++-mode-hook 'la-cpp-mode-hook)
-(append-to-scratch "Find C++ references:\n;; C-c M-o")
+(append-to-scratch "Find C++ references:\n;; M-] OR C-c M-o")
 
 ;;FIXME some statements are duplicated across programming languages, like
 ;; (local-set-key (kbd ")") 'self-insert-command)

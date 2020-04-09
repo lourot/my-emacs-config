@@ -15,6 +15,7 @@
 (column-number-mode t)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq same-window-regexps '("."))
+(setq ring-bell-function 'ignore)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 (global-set-key (kbd "C-z") 'cua-paste) ;; like C-y, because of DE/US keyboard layouts
 (put 'scroll-left 'disabled nil)

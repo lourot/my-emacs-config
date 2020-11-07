@@ -12,5 +12,10 @@ if [ "$code" -eq "0" ]; then
   printf "\n\n\n\n\n"
 else
   (set -x; git --no-pager grep --no-index --exclude-standard -n "$@")
+  code=$?
   printf "\n\n\n\n\n"
+  if [ "$code" -ne "0" ]; then
+    (set -x; rgrep -n "$@" .)
+    printf "\n\n\n\n\n"
+  fi
 fi

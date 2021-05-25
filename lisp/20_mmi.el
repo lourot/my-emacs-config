@@ -137,7 +137,7 @@
 (defun la-set-font-size ()
   (interactive)
   (if (display-graphic-p)
-    (set-face-attribute 'default nil :height 100)
+    (set-face-attribute 'default nil :height 110)
   )
 )
 (run-with-idle-timer 4 nil 'la-set-font-size)

@@ -121,6 +121,7 @@
 
 ;; Python (word highlighting and code browsing):
 (add-hook 'python-mode-hook 'set-la-highlight)
+(setq elpy-rpc-python-command "python3")
 (append-to-scratch "Go to Python definition and back:\n;; M-. M-,")
 
 ;; LaTeX:

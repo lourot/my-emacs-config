@@ -36,7 +36,7 @@
 )
 (global-set-key [backtab] 'deindent)
 
-;; Line Commenting:
+;; Line commenting:
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"
   (interactive)

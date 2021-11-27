@@ -26,7 +26,7 @@
 (defun insert-tab () (interactive) (insert "  ")) ;; FIXME use a constant
 (global-set-key [f13] 'insert-tab)
 
-;; Scrolling: 
+;; Scrolling:
 (scroll-bar-mode -1)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3) ((control) . nil)))
 (setq mouse-wheel-progressive-speed 't)
@@ -34,7 +34,7 @@
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
 
-;; Selection: 
+;; Selection:
 (setq cua-enable-cua-keys nil)
 (setq cua-highlight-region-shift-only t) ;; no transient mark mode
 (setq cua-toggle-set-mark nil) ;; original set-mark behavior, i.e. no transient-mark-mode
@@ -51,7 +51,7 @@
                   (get-char-property (point) 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
-;; Invisible characters: 
+;; Invisible characters:
 (setq inhibit-eol-conversion t) ;; always show CR
 (defun disable-ws ()
   (interactive)
@@ -96,7 +96,7 @@
 (unless (display-graphic-p)
   (global-set-key (kbd "<delete>") 'delete-char))
 
-;; Debugging: 
+;; Debugging:
 (defun append-to-scratch (text)
   "Appends TEXT as comment at the end of the scratch."
   (interactive "s")
@@ -106,7 +106,7 @@
   (insert text)
   (insert "\n"))
 
-;; Scratch: 
+;; Scratch:
 (setq initial-scratch-message "")
 (append-to-scratch "Debugging:\n;; M-x append-to-scratch")
 (append-to-scratch "Adjust font size:\n;; C-x C-+|-|0")

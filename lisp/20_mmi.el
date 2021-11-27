@@ -78,7 +78,7 @@
 ;; - https://stackoverflow.com/a/7955221/1855917
 (setq whitespace-style
       '(face spaces tabs newline space-mark tab-mark trailing lines-tail empty))
-(setq whitespace-line-column 80)
+(setq whitespace-line-column 79)
 
 ;; Special keys in console:
 (define-key input-decode-map "\e[1;2D" [S-left])

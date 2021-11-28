@@ -116,13 +116,14 @@
 ;; Terminal:
 (add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
 (setq key-open-term (kbd "C-c C-c"))
-(global-set-key key-open-term 'multi-term)
+(global-set-key key-open-term 'multi-vterm)
 (setq term-unbind-key-list (delete "<ESC>" term-unbind-key-list))
 (defun la-term-mode-hook ()
   "LA Term mode hook."
   )
-(add-hook 'term-mode-hook 'la-term-mode-hook)
-(set-face-attribute 'term nil :background background-color)
+(add-hook 'term-mode-hook 'la-term-mode-hook) ;; TODO remove when removing multi-term
+(add-hook 'vterm-mode-hook 'la-term-mode-hook)
+(set-face-attribute 'term nil :background background-color) ;; TODO remove when removing multi-term?
 
 ;; Full screen:
 (defun la-full-screen ()

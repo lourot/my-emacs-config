@@ -23,3 +23,5 @@ curl -o vterm.tar https://melpa.org/packages/vterm-20210908.640.tar
 tar xvf vterm.tar
 rm vterm.tar
 mv vterm* vterm
+
+curl -o multi-vterm.el https://melpa.org/packages/multi-vterm-20210727.1050.el

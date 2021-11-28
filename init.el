@@ -6,7 +6,6 @@
 (load "buff-menu")
 (require 'revbufs)
 (require 'grep-edit)
-(require 'multi-term)
 
 ;; Fix auto-complete popups by using `pos-tip.el` instead of `popup.el`, see
 ;; https://github.com/auto-complete/auto-complete/issues/402#issuecomment-105750453
@@ -21,8 +20,12 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/js2-mode/")
 (require 'js2-mode)
 
+;; TODO: replaced by multi-vterm, can be removed
+(require 'multi-term)
+
 (add-to-list 'load-path "~/.emacs.d/thirdparty/vterm/")
 (require 'vterm)
+(require 'multi-vterm)
 
 ;; We need at least Emacs 24.4, see https://github.com/jorgenschaefer/elpy/issues/1431
 (when (or (> emacs-major-version 24)

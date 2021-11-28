@@ -256,12 +256,13 @@
   "LA Term mode hook."
   (local-set-key  (kbd "C-y") 'term-paste) ;; can be done with S-insert too
 )
-(add-hook 'term-mode-hook 'la-term-mode-hook)
+(add-hook 'term-mode-hook 'la-term-mode-hook) ;; TODO: remove when removing multi-term
+(add-hook 'vterm-mode-hook 'la-term-mode-hook)
 
 ;; Make it possible to open a terminal with "C-c C-c" from these modes as well:
 (defun open-term-mode-hook ()
   "open term mode hook."
-  (local-set-key key-open-term 'multi-term)
+  (local-set-key key-open-term 'multi-vterm)
 )
 (add-hook 'conf-mode-hook 'open-term-mode-hook)
 (add-hook 'sh-mode-hook 'open-term-mode-hook)

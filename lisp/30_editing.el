@@ -142,6 +142,7 @@
 (defun la-text-mode ()
   "LA Text mode"
   (text-mode)
+  (visual-line-mode) ;; soft wrapping
   (setq mode-name "LA Text") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . la-text-mode))

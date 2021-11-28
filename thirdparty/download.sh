@@ -17,3 +17,9 @@ curl -o json-reformat.el https://raw.githubusercontent.com/gongo/json-reformat/m
 curl -o json-mode.el https://raw.githubusercontent.com/joshwnj/json-mode/master/json-mode.el
 
 curl -o multi-term.el https://www.emacswiki.org/emacs/download/multi-term.el
+
+rm -rf vterm*
+curl -o vterm.tar https://melpa.org/packages/vterm-20210908.640.tar
+tar xvf vterm.tar
+rm vterm.tar
+mv vterm* vterm

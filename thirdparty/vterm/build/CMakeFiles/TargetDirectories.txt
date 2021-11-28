@@ -1,0 +1,4 @@
+/home/lourot/.emacs.d/thirdparty/vterm/build/CMakeFiles/rebuild_cache.dir
+/home/lourot/.emacs.d/thirdparty/vterm/build/CMakeFiles/edit_cache.dir
+/home/lourot/.emacs.d/thirdparty/vterm/build/CMakeFiles/run.dir
+/home/lourot/.emacs.d/thirdparty/vterm/build/CMakeFiles/vterm-module.dir

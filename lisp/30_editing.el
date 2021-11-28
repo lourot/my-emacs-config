@@ -11,6 +11,10 @@
 ;; Fix broken popup, see https://stackoverflow.com/a/13242340/1855917
 (setq popup-use-optimized-column-computation nil)
 
+;; Makes emacs kill (i.e. copy) to the clipboard.
+;; See http://stackoverflow.com/questions/64360/how-to-copy-text-from-emacs-to-another-application-on-linux
+(setq x-select-enable-clipboard t)
+
 ;; Disable auto-indent when pressing return, see https://emacs.stackexchange.com/a/5941/18744
 (when (fboundp 'electric-indent-mode) (electric-indent-mode -1))
 
@@ -263,6 +267,9 @@
 (add-hook 'sh-mode-hook 'open-term-mode-hook)
 (add-hook 'sql-mode-hook 'open-term-mode-hook)
 (add-hook 'python-mode-hook 'open-term-mode-hook)
+
+;; Be able to open the emacs command prompt from a terminal:
+(add-to-list 'term-bind-key-alist '("M-x" . execute-extended-command))
 
 ;; Finding files:
 (defun la-save-grep-changes ()

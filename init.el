@@ -6,7 +6,6 @@
 (load "buff-menu")
 (require 'revbufs)
 (require 'grep-edit)
-(add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/thirdparty/")
 (require 'multi-term)
 
 ;; Fix auto-complete popups by using `pos-tip.el` instead of `popup.el`, see
@@ -46,8 +45,6 @@
 (load "20_mmi")
 (load "30_editing")
 (load "50_projects")
-(add-to-list 'load-path "~/.emacs.d/thirdparty/crouton-emacs-conf/")
-(load "crouton-emacs-conf")
 
 ;; Generated:
 (custom-set-variables

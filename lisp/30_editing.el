@@ -252,25 +252,21 @@
 (add-hook 'html-mode-hook 'set-la-highlight)
 
 ;; Term (paste):
-(defun la-term-mode-hook ()
-  "LA Term mode hook."
+(defun la-vterm-mode-hook ()
+  "LA VTerm mode hook."
   (local-set-key  (kbd "C-y") 'term-paste) ;; can be done with S-insert too
 )
-(add-hook 'term-mode-hook 'la-term-mode-hook) ;; TODO: remove when removing multi-term
-(add-hook 'vterm-mode-hook 'la-term-mode-hook)
+(add-hook 'vterm-mode-hook 'la-vterm-mode-hook)
 
 ;; Make it possible to open a terminal with "C-c C-c" from these modes as well:
-(defun open-term-mode-hook ()
-  "open term mode hook."
-  (local-set-key key-open-term 'multi-vterm)
+(defun open-vterm-mode-hook ()
+  "open vterm mode hook."
+  (local-set-key key-open-vterm 'multi-vterm)
 )
-(add-hook 'conf-mode-hook 'open-term-mode-hook)
-(add-hook 'sh-mode-hook 'open-term-mode-hook)
-(add-hook 'sql-mode-hook 'open-term-mode-hook)
-(add-hook 'python-mode-hook 'open-term-mode-hook)
-
-;; Be able to open the emacs command prompt from a terminal:
-(add-to-list 'term-bind-key-alist '("M-x" . execute-extended-command))
+(add-hook 'conf-mode-hook 'open-vterm-mode-hook)
+(add-hook 'sh-mode-hook 'open-vterm-mode-hook)
+(add-hook 'sql-mode-hook 'open-vterm-mode-hook)
+(add-hook 'python-mode-hook 'open-vterm-mode-hook) ;; FIXME doesn't work
 
 ;; Finding files:
 (defun la-save-grep-changes ()

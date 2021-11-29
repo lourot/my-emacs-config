@@ -20,9 +20,6 @@
 (add-to-list 'load-path "~/.emacs.d/thirdparty/js2-mode/")
 (require 'js2-mode)
 
-;; TODO: replaced by multi-vterm, can be removed
-(require 'multi-term)
-
 (add-to-list 'load-path "~/.emacs.d/thirdparty/vterm/")
 (require 'vterm)
 (require 'multi-vterm)

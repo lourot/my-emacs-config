@@ -117,15 +117,6 @@
 (setq key-open-vterm (kbd "C-c C-c"))
 (global-set-key key-open-vterm 'multi-vterm)
 
-;; Full screen:
-(defun la-full-screen ()
-  (interactive)
-  (setq mf-max-width 1900)
-  (setq mf-display-padding-height 50)
-  (maximize-frame)
-)
-(run-with-idle-timer 2 nil 'la-full-screen)
-
 ;; Font size:
 (defun la-set-font-size ()
   (interactive)

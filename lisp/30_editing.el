@@ -146,6 +146,7 @@
 (defun la-text-mode ()
   "LA Text mode"
   (text-mode)
+  (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
   (visual-line-mode) ;; soft wrapping
   (setq mode-name "LA Text") ;; must be the last one
 )

@@ -40,6 +40,27 @@
 )
 (global-set-key [backtab] 'deindent)
 
+;; Line wrapping:
+(defun la-goto-column (number)  ;; inspired from https://communitygrids.blogspot.com/2007/11/emacs-goto-column-function.html
+  (interactive "nColumn number ( - 1 == C) ? ")
+  (beginning-of-line)
+  (while (> number 0)
+    (forward-char)
+    (setq number (1- number))
+  )
+)
+(defun la-wrap-current-line ()
+  (interactive)
+  (la-goto-column 81)  ;; FIXME duplicates whitespace-line-column+2
+  (left-word)
+  (newline)
+  (previous-line)
+  (delete-trailing-whitespace)  ;; FIXME this does it on the entire buffer and not just the current line
+  (next-line)
+  (end-of-line)
+)
+(global-set-key (kbd "C-ö") 'la-wrap-current-line)
+
 ;; Line commenting:
 (defun toggle-comment-on-line ()
   "comment or uncomment current line"

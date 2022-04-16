@@ -103,6 +103,7 @@
   (c-set-offset 'innamespace '0) ;; don't indent namespace content
   (setq tab-width la-tabwidth) ;; display width of character TAB
   (add-to-list 'c-cleanup-list 'comment-close-slash)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA C++") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.[ch]p?p?\\'" . la-cpp-mode))
@@ -156,6 +157,7 @@
 (defun la-lisp-mode ()
   "LA Lisp mode"
   (emacs-lisp-mode)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA Lisp") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.el\\'" . la-lisp-mode))
@@ -169,15 +171,18 @@
   (text-mode)
   (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
   (visual-line-mode) ;; soft wrapping
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA Text") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . la-text-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . la-text-mode))
 
 ;; Javascript:
 (defun la-js-mode ()
   "LA JS mode"
   (js2-mode)
   (setq js2-basic-offset la-tabwidth)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA JS") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.js\\'" . la-js-mode))
@@ -197,6 +202,7 @@
   "LA JSON mode"
   (json-mode)
   (setq js-indent-level la-tabwidth)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA JSON") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.json\\'" . la-json-mode))
@@ -209,6 +215,7 @@
   "LA CSS mode"
   (css-mode)
   (setq css-indent-offset 2)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA CSS") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.css\\'" . la-css-mode))
@@ -222,6 +229,7 @@
   (setq tab-width la-tabwidth) ;; display width of character TAB
   (c-set-offset 'arglist-intro '++)         ;; argument indentation
   (c-set-offset 'arglist-cont-nonempty '++) ;; argument indentation
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA Java") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.java\\'" . la-java-mode))
@@ -246,6 +254,7 @@
   "LA SH mode"
   (sh-mode)
   (setq sh-basic-offset la-tabwidth)
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA SH") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("\\.sh\\'" . la-sh-mode))
@@ -266,6 +275,7 @@
   ;;FIXME workaround, otherwise pressing TAB raises 'wrong number of arguments':
   (local-set-key (kbd "<tab>") 'insert-real-tab)
 
+  (hl-line-mode) ;; highlight current line
   (setq mode-name "LA GNUmakefile") ;; must be the last one
 )
 (add-to-list 'auto-mode-alist '("Makefile\\'" . la-makefile-gmake-mode))

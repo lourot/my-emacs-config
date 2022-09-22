@@ -118,10 +118,14 @@
 (global-set-key key-open-vterm 'multi-vterm)
 
 ;; Font size:
-(defun la-set-font-size ()
+(defun la-set-font ()
   (interactive)
   (if (display-graphic-p)
-    (set-face-attribute 'default nil :height 105)
+    (progn
+      ;; See https://www.emacswiki.org/emacs/SetFonts :
+      (set-face-attribute 'default nil :font "DejaVu Sans Mono Book")
+      (set-face-attribute 'default nil :height 90)
+    )
   )
 )
-(run-with-idle-timer 4 nil 'la-set-font-size)
+(run-with-idle-timer 4 nil 'la-set-font)

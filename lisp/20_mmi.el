@@ -149,3 +149,17 @@
   (la-set-font 75)
 )
 (run-with-idle-timer 4 nil 'la-set-font-small)
+
+;; Splitting screen:
+(defun la-split-window-six ()
+  (interactive)
+  (delete-other-windows)
+  (split-window-vertically)
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (other-window 3)
+  (split-window-horizontally)
+  (split-window-horizontally)
+  (other-window 3)
+  (balance-windows)
+)

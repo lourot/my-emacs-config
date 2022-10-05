@@ -123,7 +123,7 @@
   (if (display-graphic-p)
     (progn
       ;; See https://www.emacswiki.org/emacs/SetFonts :
-      (set-face-attribute 'default nil :font "DejaVu Sans Mono Book")
+      (set-face-attribute 'default nil :font "Noto Mono")
       (set-face-attribute 'default nil :height height)
     )
   )
@@ -138,15 +138,11 @@
 )
 (defun la-set-font-medium ()
   (interactive)
-  (la-set-font 105)
+  (la-set-font 100)
 )
 (defun la-set-font-small ()
   (interactive)
-  (la-set-font 90)
-)
-(defun la-set-font-xsmall ()
-  (interactive)
-  (la-set-font 75)
+  (la-set-font 80)
 )
 (run-with-idle-timer 4 nil 'la-set-font-small)
 

@@ -125,6 +125,9 @@
       ;; See https://www.emacswiki.org/emacs/SetFonts :
       (set-face-attribute 'default nil :font "Noto Mono")
       (set-face-attribute 'default nil :height height)
+
+      ;; See https://ianyepan.github.io/posts/emacs-emojis/ :
+      (set-fontset-font t 'symbol (font-spec :family "Noto Color Emoji") nil 'prepend)
     )
   )
 )

@@ -149,7 +149,7 @@
 )
 (defun la-set-font-xsmall ()
   (interactive)
-  (la-set-font 80)
+  (la-set-font 75)
 )
 (run-with-idle-timer 4 nil 'la-set-font-small)
 

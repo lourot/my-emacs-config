@@ -283,6 +283,16 @@
 ;; HTML (word highlighting):
 (add-hook 'html-mode-hook 'set-la-highlight)
 
+;; XML (code folding):
+(defun la-xml-mode ()
+  "LA XML mode"
+  (nxml-mode)
+  (hs-minor-mode 1)
+  (local-set-key  (kbd "C-c h") 'hs-toggle-hiding) ;; FIXME this function ends up having no effect
+  (setq mode-name "LA XML") ;; must be the last one
+)
+(add-to-list 'auto-mode-alist '("\\.xml\\'" . la-xml-mode))
+
 ;; Term (paste):
 (defun la-vterm-mode-hook ()
   "LA VTerm mode hook."
